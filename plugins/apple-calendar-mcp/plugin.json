@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "apple-calendar-mcp",
+  "version": "0.1.0",
+  "description": "Look up events in selected Apple calendars on this Mac using three read-only tools.",
+  "keywords": [
+    "apple-calendar",
+    "calendar",
+    "eventkit",
+    "read-only",
+    "local"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Apple Calendar MCP",
+        "shortDescription": "Look up events and free time",
+        "longDescription": "Read events from Apple Calendar on this Mac. Provides exactly three read-only tools: list_calendars, read_events, and search_events. Choose allowed calendars before reading events. Returns titles, start/end times, calendar names and an all-day indicator; never accesses notes or attendees. No create, update or delete tools. Uses local stdio without a public network port. Defaults to Asia/Hong_Kong and queries at most 31 days per call. Free time is inferred from selected calendars only. Requires macOS Calendar Full Access, with read-only behavior enforced by the implementation. Calendar results enter the conversation. Mac availability and account synchronization affect freshness.",
+        "category": "Productivity",
+        "capabilities": [
+          "Read"
+        ],
+        "defaultPrompt": [
+          "Show tomorrow's events in my selected Apple calendars, using Hong Kong time.",
+          "Find my team meetings in my selected Apple calendars this month.",
+          "Use my selected Apple calendars to suggest free time next week."
+        ]
+      }
+    }
+  }
+}
